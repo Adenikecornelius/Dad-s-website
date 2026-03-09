@@ -1,0 +1,247 @@
+/* -------------------- Body & Background -------------------- */
+body{
+    margin:0;
+    font-family: Georgia, serif;
+    background: linear-gradient(180deg,#0a1a33,#000000);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+    position: relative;
+}
+
+/* Sparkle Canvas */
+#sparkleCanvas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    will-change: transform;
+}
+
+/* -------------------- Header -------------------- */
+header{
+    padding:50px;
+}
+#mainTitle{
+    font-size:48px;
+    letter-spacing:2px;
+    color:#c7d6ff;
+    text-shadow: 0 0 15px #c7d6ff;
+}
+.subtitle{
+    color:#d0d7ff;
+    font-size:20px;
+}
+
+/* -------------------- Family Photo Carousel -------------------- */
+.gallery{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    padding:30px;
+}
+.photoCard{
+    text-align:center;
+    transition:0.5s;
+    position: relative;
+}
+.photoCard img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #c7d6ff;
+    transition:0.5s;
+    animation: float 3s ease-in-out infinite;
+}
+.photoCard img:hover{
+    transform: scale(1.2) rotate(3deg);
+    box-shadow: 0 0 20px rgba(199,214,255,0.8);
+}
+.photoCard p{
+    margin-top:10px;
+    font-weight:bold;
+    color:#d0d7ff;
+}
+
+/* Floating Animation */ 
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0px);}
+}
+
+/* -------------------- Poem Cards -------------------- */
+.cardContainer{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:40px;
+}
+.card{
+    width:260px;
+    background:#0f1f3d;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0px 10px 20px rgba(0,0,0,0.7);
+    transition:0.4s;
+}
+.card h2{
+    color:#c7d6ff;
+    text-shadow: 0 0 10px #d0d7ff;
+}
+.card:hover{
+    transform:translateY(-10px) scale(1.05) rotate(-1deg);
+    background:#132a52;
+}
+
+/* -------------------- Luxury Art Gallery -------------------- */
+.artGallery{
+    padding:20px 20px 50px 20px;
+}
+.artGallery h2{
+    font-size:36px;
+    color:#c7d6ff;
+    text-shadow: 0 0 15px #d0d7ff;
+    margin-bottom:30px;
+}
+.artGrid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:20px; 
+}
+.artGrid img{
+    width:100%;
+    border-radius:15px;
+    transition:0.5s;
+    cursor:pointer;
+    box-shadow:0 0 10px rgba(199,214,255,0.5); 
+}
+.artGrid img:hover{
+    transform: scale(1.05) rotate(1deg);
+    box-shadow:0 0 15px rgba(199,214,255,0.9);
+}
+
+/* -------------------- Buttons -------------------- */
+.buttonArea{
+    margin-top:50px;
+    position: relative;
+    z-index: 1002; /* above orbiting photos */
+}
+button{
+    padding:15px 35px;
+    font-size:18px;
+    background:white;
+    color:#0a1a33;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:20px;
+}
+button:hover{
+    transform:scale(1.1);
+    box-shadow: 0 0 10px rgba(199,214,255,0.7);
+}
+
+/* -------------------- Surprise Box -------------------- */
+#surpriseBox{
+    margin: 150px 20px 30px 20px;
+    padding: 25px;
+    display:none;
+    position: relative;
+    z-index: 1004; /* top layer */
+    background: rgba(15,31,61,0.95);
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(199,214,255,0.7);
+    animation: fadeIn 1.5s ease forwards;
+}
+#callBtn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 30px;
+    background:#ffffff;
+    color:#0a1a33;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+#callBtn:hover{
+    background:#dbe4ff;
+    transform:scale(1.05);
+}
+
+/* -------------------- Lightbox -------------------- */
+#lightbox{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+#lightboxImg{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+    box-shadow:0 0 25px rgba(199,214,255,0.9);
+}
+#closeBtn{
+    position:absolute;
+    top:20px;
+    right:40px;
+    font-size:50px;
+    color:#c7d6ff;
+    cursor:pointer;
+}
+
+/* -------------------- Mute Button -------------------- */
+#muteBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+    z-index:1001;
+    transition:0.3s;
+}
+#muteBtn:hover{
+    background:rgba(0,0,0,0.8);
+}
+
+/* -------------------- Orbit Hearts / Glow -------------------- */
+.surpriseGlow{
+    animation: glowFlash 0.5s ease alternate 4;
+}
+@keyframes glowFlash{
+    0%{box-shadow:0 0 20px #c7d6ff inset;}
+    100%{box-shadow:0 0 50px #ff6fb4 inset;}
+}
+
+.heart{
+    position:fixed;
+    pointer-events:none;
+    animation: floatHeart 3s linear forwards;
+}
+@keyframes floatHeart{
+    0%{transform: translateY(0px); opacity:1;}
+    100%{transform: translateY(-600px) rotate(360deg); opacity:0;}
+}
+
+/* -------------------- General Animations -------------------- */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
